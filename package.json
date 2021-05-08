@@ -1,0 +1,14 @@
+{
+  "name": "deploys-action",
+  "version": "1.0.0",
+  "description": "Deploy docker image to deploys.app",
+  "main": "main.js",
+  "repository": "git@github.com:deploys-app/deploys-action.git",
+  "author": "Deploys.app",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@actions/exec": "^1.0.4",
+    "@actions/tool-cache": "^1.6.1"
+  }
+}

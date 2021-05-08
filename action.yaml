@@ -1,0 +1,26 @@
+name: Deploy to Deploys.app
+description: Deploy docker image to deploys.app
+author: Deploys.app
+inputs:
+  project:
+    description: Project ID
+    required: true
+  location:
+    description: Deploy Location ID
+    required: true
+  name:
+    description: Deployment Name
+    required: true
+  image:
+    description: Docker Image to deploy
+    required: true
+  port:
+    description: Deployment Port
+    required: false
+  type:
+    description: Deployment Type
+    required: false
+
+runs:
+  using: node12
+  main: main.js
