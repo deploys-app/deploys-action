@@ -4970,6 +4970,7 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony export */   "install": () => (/* binding */ install)
 /* harmony export */ });
 const path = __nccwpck_require__(622)
+const os = __nccwpck_require__(87)
 const core = __nccwpck_require__(186)
 const tc = __nccwpck_require__(784)
 

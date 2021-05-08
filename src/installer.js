@@ -1,4 +1,5 @@
 const path = require('path')
+const os = require('os')
 const core = require('@actions/core')
 const tc = require('@actions/tool-cache')
 
