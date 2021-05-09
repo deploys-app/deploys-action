@@ -1,6 +1,9 @@
 name: Deploy to Deploys.app
 description: Deploy docker image to deploys.app
 author: Deploys.app
+branding:
+  color: purple
+  icon: cloud
 inputs:
   project:
     description: Project ID
