@@ -23,6 +23,12 @@ inputs:
   type:
     description: Deployment Type
     required: false
+  minReplicas:
+    description: Minimum Replica
+    required: false
+  maxReplicas:
+    description: Maximum Replica
+    required: false
 
 runs:
   using: node12
