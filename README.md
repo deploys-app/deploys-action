@@ -55,6 +55,8 @@ jobs:
 | image | Container Image |
 | port | Port |
 | type | Deployment Type |
+| minReplicas | Autoscale Min Replicas |
+| maxReplicas | Autoscale Max Replicas |
 
 ### Environment Variables
 
