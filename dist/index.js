@@ -2213,7 +2213,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const semver = __importStar(__nccwpck_require__(911));
+const semver = __importStar(__nccwpck_require__(562));
 const core_1 = __nccwpck_require__(186);
 // needs to be require for core node modules to be mocked
 /* eslint @typescript-eslint/no-require-imports: 0 */
@@ -2413,7 +2413,7 @@ const mm = __importStar(__nccwpck_require__(473));
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 const httpm = __importStar(__nccwpck_require__(925));
-const semver = __importStar(__nccwpck_require__(911));
+const semver = __importStar(__nccwpck_require__(562));
 const stream = __importStar(__nccwpck_require__(413));
 const util = __importStar(__nccwpck_require__(669));
 const v4_1 = __importDefault(__nccwpck_require__(824));
@@ -2994,7 +2994,7 @@ function _unique(values) {
 
 /***/ }),
 
-/***/ 911:
+/***/ 562:
 /***/ ((module, exports) => {
 
 exports = module.exports = SemVer
@@ -4977,7 +4977,7 @@ const tc = __nccwpck_require__(784)
 const osPlat = os.platform()
 const osArch = os.arch()
 
-const version = '1'
+const version = '1.0.1'
 
 async function install () {
 	const downloadUrl = `https://github.com/deploys-app/deploys/releases/download/v${version}/${getFilename(version)}`
@@ -5191,7 +5191,9 @@ async function run () {
 			name: core.getInput('name'),
 			image: core.getInput('image'),
 			port: core.getInput('port'),
-			type: core.getInput('type')
+			type: core.getInput('type'),
+			minReplicas: core.getInput('minReplicas'),
+			maxReplicas: core.getInput('maxReplicas')
 		}
 
 		const deploys = await installer.install()
@@ -5206,6 +5208,8 @@ async function run () {
 		cmd += ` -image=${inputs.image}`
 		if (!!inputs.port) cmd += ` -port=${port}`
 		if (!!inputs.type) cmd += ` -type=${type}`
+		if (!!inputs.minReplicas) cmd += ` -minReplicas=${inputs.minReplicas}`
+		if (!!inputs.maxReplicas) cmd += ` -maxReplicas=${inputs.maxReplicas}`
 
 		await exec.exec(cmd)
 	} catch (error) {
