@@ -10,7 +10,9 @@ async function run () {
 			name: core.getInput('name'),
 			image: core.getInput('image'),
 			port: core.getInput('port'),
-			type: core.getInput('type')
+			type: core.getInput('type'),
+			minReplicas: core.getInput('minReplicas'),
+			maxReplicas: core.getInput('maxReplicas')
 		}
 
 		const deploys = await installer.install()
@@ -25,6 +27,8 @@ async function run () {
 		cmd += ` -image=${inputs.image}`
 		if (!!inputs.port) cmd += ` -port=${port}`
 		if (!!inputs.type) cmd += ` -type=${type}`
+		if (!!inputs.minReplicas) cmd += ` -minReplicas=${inputs.minReplicas}`
+		if (!!inputs.maxReplicas) cmd += ` -maxReplicas=${inputs.maxReplicas}`
 
 		await exec.exec(cmd)
 	} catch (error) {
