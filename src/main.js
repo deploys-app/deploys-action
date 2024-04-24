@@ -25,8 +25,8 @@ async function run () {
 		cmd += ` -project=${inputs.project}`
 		cmd += ` -name=${inputs.name}`
 		cmd += ` -image=${inputs.image}`
-		if (!!inputs.port) cmd += ` -port=${port}`
-		if (!!inputs.type) cmd += ` -type=${type}`
+		if (!!inputs.port) cmd += ` -port=${inputs.port}`
+		if (!!inputs.type) cmd += ` -type=${inputs.type}`
 		if (!!inputs.minReplicas) cmd += ` -minReplicas=${inputs.minReplicas}`
 		if (!!inputs.maxReplicas) cmd += ` -maxReplicas=${inputs.maxReplicas}`
 
