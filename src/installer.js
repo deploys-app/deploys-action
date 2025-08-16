@@ -6,9 +6,7 @@ const tc = require('@actions/tool-cache')
 const osPlat = os.platform()
 const osArch = os.arch()
 
-const version = '1.0.5'
-
-export async function install () {
+export async function install (version) {
 	const downloadUrl = `https://github.com/deploys-app/deploys/releases/download/v${version}/${getFilename(version)}`
 	core.info(`Downloading ${downloadUrl}...`)
 	const downloadedPath = await tc.downloadTool(downloadUrl)

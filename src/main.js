@@ -2,6 +2,8 @@ const core = require('@actions/core')
 const exec = require('@actions/exec')
 const installer = require('./installer')
 
+const version = '1.0.6'
+
 async function run () {
 	try {
 		const inputs = {
@@ -14,8 +16,11 @@ async function run () {
 			minReplicas: core.getInput('minReplicas'),
 			maxReplicas: core.getInput('maxReplicas')
 		}
+        const env = {
+            version: process.env.DEPLOYS_CLI_VERSION || version,
+        }
 
-		const deploys = await installer.install()
+		const deploys = await installer.install(env.version)
 		core.info('Deploys CLI installed sucessfully')
 
 		core.info('Deploying...')

@@ -29879,9 +29879,7 @@ const tc = __nccwpck_require__(3472)
 const osPlat = os.platform()
 const osArch = os.arch()
 
-const version = '1.0.5'
-
-async function install () {
+async function install (version) {
 	const downloadUrl = `https://github.com/deploys-app/deploys/releases/download/v${version}/${getFilename(version)}`
 	core.info(`Downloading ${downloadUrl}...`)
 	const downloadedPath = await tc.downloadTool(downloadUrl)
@@ -31854,6 +31852,8 @@ const core = __nccwpck_require__(7484)
 const exec = __nccwpck_require__(5236)
 const installer = __nccwpck_require__(4109)
 
+const version = '1.0.6'
+
 async function run () {
 	try {
 		const inputs = {
@@ -31866,8 +31866,11 @@ async function run () {
 			minReplicas: core.getInput('minReplicas'),
 			maxReplicas: core.getInput('maxReplicas')
 		}
+        const env = {
+            version: process.env.DEPLOYS_CLI_VERSION || version,
+        }
 
-		const deploys = await installer.install()
+		const deploys = await installer.install(env.version)
 		core.info('Deploys CLI installed sucessfully')
 
 		core.info('Deploying...')
