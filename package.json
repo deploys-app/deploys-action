@@ -1,6 +1,6 @@
 {
   "name": "deploys-action",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Deploy docker image to deploys.app",
   "main": "src/main.js",
   "repository": "git@github.com:deploys-app/deploys-action.git",
